@@ -56,6 +56,7 @@ app.post('/face', (req, res) => {
 
 app.post('/clearfaces', (req, res) => {
     faces = [];
+    res.send('Removed all faces');
 });
 
 app.listen(port, () => console.log(`Running on port ${port}!`));
