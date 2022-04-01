@@ -52,7 +52,10 @@ app.post('/face', (req, res) => {
     catch (error) {
      req.send('Error');   
     }
+});
 
+app.post('/clearfaces', (req, res) => {
+    faces = [];
 });
 
 app.listen(port, () => console.log(`Running on port ${port}!`));
