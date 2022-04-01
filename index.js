@@ -23,20 +23,19 @@ app.get('/', (req, res) => {
 
 app.post('/face', (req, res) => {
     const face = req.body;
-    console.log("teste")
+
     request('https://api.spidx.app:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
         console.log(body);
-        if (err) { return console.log(err); }
-            console.log(body.url);
-            console.log(body.explanation);
+        if (err) {
+            return console.log(err);
         }
-    );
-    console.log("teste2")
-    // Output the face to the console for debugging
-    // console.log(face);
-    faces.push(face.guid);
+        console.log(body.url);
+        console.log(body.explanation);
+        faces.push(body.biometricPackage.biometricList[0]['content']);
+    });
+    
 
-    res.send('face is added to the database');
+    res.send('face is added\n');
 });
 
 app.get('/faces', (req, res) => {
