@@ -39,7 +39,7 @@ app.post('/face', (req, res) => {
     console.log(req.body);
 
     try {
-        request('https://api.spidx.app:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
+        request('https://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
             if (err) {
                 return console.log(err);
             }
