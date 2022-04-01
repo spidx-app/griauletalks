@@ -6,7 +6,7 @@
     <title>Face List</title>
 
     <script>
-      window.onload = async () => {
+      window.onload = () => {
             fetch('https://griauletalks.herokuapp.com/faces').then(data => {
                 return data.json()
             }).then(faces => {
