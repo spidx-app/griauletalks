@@ -22,13 +22,16 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 app.set('views', __dirname);
 
-
 app.get('/', (req, res) => {
     res.render('index')
 });
 
 app.get('/faces', (req, res) => {
     res.render('faces')
+});
+
+app.get('/faces-json', (req, res) => {
+    res.send(faces)
 });
 
 app.post('/face', (req, res) => {
