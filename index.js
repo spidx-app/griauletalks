@@ -16,30 +16,41 @@ app.use(cors());
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/'));
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+app.set('views', __dirname);
+
 
 app.get('/', (req, res) => {
-    res.send("HELLO WORLD");
+    res.render('index')
 });
 
 app.post('/face', (req, res) => {
     const face = req.body;
 
-    request('https://api.spidx.app:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
-        console.log(body);
-        if (err) {
-            return console.log(err);
-        }
-        console.log(body.url);
-        console.log(body.explanation);
-        faces.push(body.biometricPackage.biometricList[0]['content']);
-    });
-    
+    try {
+        request('https://api.spidx.app:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
+            if (err) {
+                return console.log(err);
+            }
+            if (body.biometricPackage) {
+                faces.push(body.biometricPackage.biometricList[0]['content']);
+            }
+        });
+        
+        res.send('face added!\n');
+    }
+    catch (error) {
+     req.send('Error');   
+    }
 
-    res.send('face is added\n');
 });
 
 app.get('/faces', (req, res) => {
-    res.json(faces);
+    // res.json(faces);
+    res.render('faces')
 });
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+app.listen(port, () => console.log(`Running on port ${port}!`));
