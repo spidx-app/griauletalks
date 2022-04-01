@@ -27,6 +27,10 @@ app.get('/', (req, res) => {
     res.render('index')
 });
 
+app.get('/faces', (req, res) => {
+    res.render('faces')
+});
+
 app.post('/face', (req, res) => {
     const face = req.body;
 
@@ -46,11 +50,6 @@ app.post('/face', (req, res) => {
      req.send('Error');   
     }
 
-});
-
-app.get('/faces', (req, res) => {
-    // res.json(faces);
-    res.render('faces')
 });
 
 app.listen(port, () => console.log(`Running on port ${port}!`));
