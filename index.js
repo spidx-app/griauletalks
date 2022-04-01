@@ -36,6 +36,7 @@ app.get('/faces-json', (req, res) => {
 
 app.post('/face', (req, res) => {
     const face = req.body;
+    console.log(req.body);
 
     try {
         request('https://api.spidx.app:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
@@ -46,11 +47,11 @@ app.post('/face', (req, res) => {
                 faces.push(body.biometricPackage.biometricList[0]['content']);
             }
         });
-        
+
         res.send('face added!\n');
     }
     catch (error) {
-     req.send('Error');   
+        req.send('Error');
     }
 });
 
