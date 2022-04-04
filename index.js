@@ -36,9 +36,10 @@ app.get('/faces-json', (req, res) => {
 
 app.post('/face', (req, res) => {
     const face = req.body;
-    // console.log(req.body);
+    console.log(req.body);
 
     console.log("teste")
+    console.log('http://192.168.0.101:8096/collection/' + face.guid)
     try {
         request('http://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
             console.log("1")
@@ -59,6 +60,7 @@ app.post('/face', (req, res) => {
         res.send('face added!\n');
     }
     catch (error) {
+        console.log("errouuu")
         req.send('Error');
     }
 });
