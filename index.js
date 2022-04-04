@@ -39,7 +39,8 @@ app.post("/face", (req, res) => {
   axios
     .get("https://api.spidx.app:8096/collection/" + face.guid)
     .then((res) => {
-      faces.push(res.data.biometricPackage.biometricList[0]["content"]);
+      console.log(res.data)
+      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
     })
     .catch((error) => {
       console.log(error);
