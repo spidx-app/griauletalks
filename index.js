@@ -5,7 +5,7 @@ const express = require('express')
 const app = express();
 const port = process.env.PORT || 3000;
 
-const request = require('request');
+const axios = require('axios');
 
 
 // Where we will keep faces
@@ -40,24 +40,32 @@ app.post('/face', (req, res) => {
 
     console.log("teste")
     console.log('http://192.168.0.101:8096/collection/' + face.guid)
-    try {
-        request('http://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
-            console.log("1")
-            if (err) {
-                console.log("2")
-                return console.log(err);
-            }
-            console.log("3")
-            console.log(body);
-            if (body.biometricPackage) {
-                console.log("4")
-                console.log("passou aqui agora")
-                console.log(body);
-                faces.push(body.biometricPackage.biometricList[0]['content']);
-            }
-        });
 
-        res.send('face added!\n');
+    try {
+        axios.get('http://192.168.0.101:8096/collection/' + face.guid)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        // request('http://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
+        //     console.log("1")
+        //     if (err) {
+        //         console.log("2")
+        //         return console.log(err);
+        //     }
+        //     console.log("3")
+        //     console.log(body);
+        //     if (body.biometricPackage) {
+        //         console.log("4")
+        //         console.log("passou aqui agora")
+        //         console.log(body);
+        //         faces.push(body.biometricPackage.biometricList[0]['content']);
+        //     }
+        // });
+
+        // res.send('face added!\n');
     }
     catch (error) {
         console.log("errouuu")
