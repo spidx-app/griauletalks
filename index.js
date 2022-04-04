@@ -37,7 +37,7 @@ app.post("/face", (req, res) => {
   const face = req.body;
 
   axios
-    .get("https://api.spidx.app/collection/" + face.guid)
+    .get("https://api.spidx.app:8096/collection/" + face.guid)
     .then((res) => {
       faces.push(res.data.biometricPackage.biometricList[0]["content"]);
     })
