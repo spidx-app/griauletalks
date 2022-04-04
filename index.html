@@ -5,40 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spidx Button</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script src="https://resources.spidx.app/spidx_auth.js"></script> -->
-    <script src="http://192.168.0.101:8080/spidx_auth.js"></script>
+    <script src="http://resources.spidx.app/spidx_auth.js"></script>
     <script>
       window.onload = () => {
-            // window.SpidxAuth.init({
-            //     apiKey: '243B62AF-BDF4-470F-82D6-E75E905B953C',       // Change to your API Key
-            //     useCaseId: 'FB4BA5AC-793F-49E8-B66D-A90EF3F62E6D',    // Change to your Use Case ID
-            //     elemId: 'spidx-auth',
-            //     environment: 'PROD'
-            // })
             window.SpidxAuth.init({
-                apiKey: '11A174CE-DBF0-4DE3-BECB-B247B81AC579',       // Change to your API Key
-                useCaseId: 'F88DE7CF-0394-46C0-8776-1C0F3D679D2D',    // Change to your Use Case ID
-                elemId: 'spidx-auth',
-                environment: 'DEV'
+                apiKey: '243B62AF-BDF4-470F-82D6-E75E905B953C',
+                useCaseId: 'FB4BA5AC-793F-49E8-B66D-A90EF3F62E6D',
+                elemId: 'spidx-auth'
             })
+
             
             window.SpidxAuth.transactionCallback = async (data) => {
                 if (data.transactionStatus == 'OK') {
-                    // console.log("passou aqui")
-                    // postFace(data.transactionId)
+                    console.log("Transaction finished!")
                 }
             }
         }
 
-        function postFace(transactionId) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", 'https://griauletalks.herokuapp.com/face', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({
-                'guid': transactionId
-            }));
-            console.log("posted!")
-        }
+        // function postFace(transactionId) {
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.open("POST", 'https://griauletalks.herokuapp.com/face', true);
+        //     xhr.setRequestHeader('Content-Type', 'application/json');
+        //     xhr.send(JSON.stringify({
+        //         'guid': transactionId
+        //     }));
+        //     console.log("posted!")
+        // }
     </script>
 
 </head>
