@@ -36,14 +36,22 @@ app.get('/faces-json', (req, res) => {
 
 app.post('/face', (req, res) => {
     const face = req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
+    console.log("teste")
     try {
-        request('https://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
+        request('http://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
+            console.log("1")
             if (err) {
+                console.log("2")
                 return console.log(err);
             }
+            console.log("3")
+            console.log(body);
             if (body.biometricPackage) {
+                console.log("4")
+                console.log("passou aqui agora")
+                console.log(body);
                 faces.push(body.biometricPackage.biometricList[0]['content']);
             }
         });
