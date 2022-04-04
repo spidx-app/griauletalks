@@ -35,7 +35,7 @@ app.get("/faces-json", (req, res) => {
 
 app.post("/face", (req, res) => {
   const face = req.body;
-
+  console.log("received ", face)
   axios
     .get("https://api.spidx.app:8096/collection/" + face.guid)
     .then((res) => {
