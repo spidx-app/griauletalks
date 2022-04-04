@@ -41,36 +41,33 @@ app.post('/face', (req, res) => {
     console.log("teste")
     console.log('http://192.168.0.101:8096/collection/' + face.guid)
 
-    try {
-        axios.get('http://192.168.0.101:8096/collection/' + face.guid)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        // request('http://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
-        //     console.log("1")
-        //     if (err) {
-        //         console.log("2")
-        //         return console.log(err);
-        //     }
-        //     console.log("3")
-        //     console.log(body);
-        //     if (body.biometricPackage) {
-        //         console.log("4")
-        //         console.log("passou aqui agora")
-        //         console.log(body);
-        //         faces.push(body.biometricPackage.biometricList[0]['content']);
-        //     }
-        // });
 
-        // res.send('face added!\n');
-    }
-    catch (error) {
-        console.log("errouuu")
-        req.send('Error');
-    }
+    axios.get('http://192.168.0.101:8096/collection/' + face.guid)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    // request('http://192.168.0.101:8096/collection/' + face.guid, { json: true }, (err, res, body) => {
+    //     console.log("1")
+    //     if (err) {
+    //         console.log("2")
+    //         return console.log(err);
+    //     }
+    //     console.log("3")
+    //     console.log(body);
+    //     if (body.biometricPackage) {
+    //         console.log("4")
+    //         console.log("passou aqui agora")
+    //         console.log(body);
+    //         faces.push(body.biometricPackage.biometricList[0]['content']);
+    //     }
+    // });
+
+    // res.send('face added!\n');
+
+
 });
 
 app.post('/clearfaces', (req, res) => {
