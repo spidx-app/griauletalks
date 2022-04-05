@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spidx Button</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
     <script src="https://resources.spidx.app/spidx_auth.js"></script>
     <script>
       window.onload = () => {
@@ -30,10 +31,15 @@
     </script>
 
 </head>
-<body style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100vh; width: 100vw;">
-    <span style="font-family: sans-serif; padding: 8px; color: #145BCC">Are you a robot?</span>
-    <div style='width: 300px; height: 100px;'>
-        <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth'></div>
+<body>
+    <h1>
+        <!-- Griaule Talks -->
+    </h1>
+    <div class="group-container">
+        <div class="button-container">
+            <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth'></div>
+        </div>
+        <span class="human-label">I'm a human</span>
     </div>
 </body>
 </html>
