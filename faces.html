@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Face List</title>
     <script>
-      setInterval(fetchFaces, 1000);
+      // setInterval(fetchFaces, 1000);
+      window.onload(fetchFaces())
 
       var currentFaces = []
       function fetchFaces() {
