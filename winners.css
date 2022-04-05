@@ -1,0 +1,47 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #145BCC;
+}
+img {
+    padding: 16px;
+    max-width: 300px;
+}
+
+span {
+    padding-top: 16px;
+    font-size: 20px;
+}
+
+h1 {
+    color: white;
+}
+
+.container {
+    max-width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.winner-container {
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.1);
+}
+

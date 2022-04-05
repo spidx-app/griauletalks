@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winners</title>
+    <link rel="stylesheet" href="winners.css">
+    <script>
+        function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        window.onload = () => {
+            fetchFaces();
+        }
+        // setInterval(fetchFaces, 1000);
+        // var currentFaces = []
+        function fetchFaces() {
+            // console.log("fetching faces")
+            fetch("https://griauletalks.herokuapp.com/faces-json", {
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+            })
+                .then((data) => {
+                    return data.json();
+                })
+                .then((faces) => {
+                    var facesLength = faces.length
+                    var i = 0;
+                    var winner1 = randomInt(1, facesLength);
+                    console.log('winner 1: '+ winner1)
+                    var winner2 = randomInt(1, facesLength);
+                    while (winner2 == winner1 && i < 100) {
+                        winner2 = randomInt(1, facesLength);
+                        i++;
+                    }
+                    console.log('winner 2: '+ winner2)
+                    i = 0;
+                    var winner3 = randomInt(1, facesLength);
+                    while ((winner3 == winner1 || winner3 == winner2) && i < 100) {
+                        winner3 = randomInt(1, facesLength);
+                        i++;
+                    }
+                    console.log('winner 3: '+ winner3)
+                    document.getElementById("winner1").innerHTML += `<img class="picture" src="data:image/png;base64,${faces[winner1]}">`;
+                    document.getElementById("winner2").innerHTML += `<img class="picture" src="data:image/png;base64,${faces[winner2]}">`;
+                    document.getElementById("winner3").innerHTML += `<img class="picture" src="data:image/png;base64,${faces[winner3]}">`;
+                })
+        }
+    </script>
+</head>
+
+<body>
+    <h1>
+        Vencedores
+    </h1>
+    <div class="container">
+        <div class="winner-container" id="winner1">
+            <span>1º lugar</span>
+        </div>
+        <div class="winner-container" id="winner2">
+            <span>2º lugar</span>
+        </div>
+        <div class="winner-container" id="winner3">
+            <span>3º lugar</span>
+        </div>
+    </div>
+</body>
+
+</html>
