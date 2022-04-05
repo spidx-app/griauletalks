@@ -33,6 +33,10 @@ app.get("/faces-json", (req, res) => {
   res.send(faces);
 });
 
+app.get("/winners", (req, res) => {
+  res.render("winners.html");
+});
+
 app.post("/face", (req, res) => {
   const face = req.body;
   axios
