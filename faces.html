@@ -5,22 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Face List</title>
     <script>
-      window.onload = () => {
+      // window.onload = () => {
+      //   fetch("https://griauletalks.herokuapp.com/faces-json", {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Accept: "application/json",
+      //     },
+      //   })
+      //     .then((data) => {
+      //       return data.json();
+      //     })
+      //     .then((faces) => {
+      //       for (face in faces) {
+      //         document.body.innerHTML += `<img style="height: 200px" src="data:image/png;base64,${faces[face]}">`;
+      //       }
+      //     });
+      // };
+
+      setInterval(myTimer, 1000);
+      var currentFaces = []
+      function fetchFaces() {
         fetch("https://griauletalks.herokuapp.com/faces-json", {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
         })
-          .then((data) => {
-            return data.json();
-          })
-          .then((faces) => {
-            for (face in faces) {
+        .then((data) => {
+          return data.json();
+        })
+        .then((faces) => {
+          for (face in faces) {
+            if (!currentFaces.includes(faces[face])) {
               document.body.innerHTML += `<img style="height: 200px" src="data:image/png;base64,${faces[face]}">`;
             }
-          });
-      };
+          }
+        })
+      }
+
+
     </script>
   </head>
 
