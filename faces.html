@@ -22,9 +22,11 @@
       //     });
       // };
 
-      setInterval(myTimer, 1000);
+      setInterval(fetchFaces, 1000);
+
       var currentFaces = []
       function fetchFaces() {
+        console.log("fetching...");
         fetch("https://griauletalks.herokuapp.com/faces-json", {
           headers: {
             "Content-Type": "application/json",
@@ -38,6 +40,7 @@
           for (face in faces) {
             if (!currentFaces.includes(faces[face])) {
               document.body.innerHTML += `<img style="height: 200px" src="data:image/png;base64,${faces[face]}">`;
+              currentFaces.push(faces[face]);
             }
           }
         })
