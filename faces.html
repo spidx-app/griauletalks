@@ -6,7 +6,9 @@
     <title>Face List</title>
     <script>
       // setInterval(fetchFaces, 1000);
-      window.onload(fetchFaces())
+      window.onload = () => {
+        fetchFaces()
+      }
 
       var currentFaces = []
       function fetchFaces() {
