@@ -110,36 +110,6 @@ app.post("/face", (req, res) => {
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
-      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
     })
     .catch((error) => {
       console.log(error);
