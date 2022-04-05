@@ -1,40 +1,43 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Face List</title>
-    <script>
-      // setInterval(fetchFaces, 1000);
-      window.onload = () => {
-        fetchFaces()
-      }
 
-      var currentFaces = []
-      function fetchFaces() {
-        console.log("fetching...");
-        fetch("https://griauletalks.herokuapp.com/faces-json", {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        })
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face List</title>
+  <style>
+     .picture {
+      height: 200px
+    }
+
+  </style>
+  <script>
+    setInterval(fetchFaces, 1000);
+    var currentFaces = []
+    function fetchFaces() {
+      fetch("https://griauletalks.herokuapp.com/faces-json", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
         .then((data) => {
           return data.json();
         })
         .then((faces) => {
           for (face in faces) {
-            console.log(face)
-            // if (!currentFaces.includes(faces[face])) {
-              document.body.innerHTML += `<img style="height: 200px" src="data:image/png;base64,${faces[face]}">`;        
-            // }
+            if (!currentFaces.includes(faces[face])) {
+              document.body.innerHTML += `<img class="picture" src="data:image/png;base64,${faces[face]}">`;
+              currentFaces.push(faces[face])
+            }
           }
         })
-      }
+    }
+  </script>
+</head>
 
+<body style="padding: 0px; margin: 0px">
 
-    </script>
-  </head>
+</body>
 
-  <body style="padding: 0px; margin: 0px"></body>
 </html>
