@@ -39,7 +39,7 @@ app.post("/face", (req, res) => {
   axios
     .get("https://homol.spidx.app:8096/collection/" + face.guid)
     .then((res) => {
-      console.log(res.data)
+      // console.log(res.data)
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);

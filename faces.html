@@ -12,7 +12,7 @@
 
       var currentFaces = []
       function fetchFaces() {
-        // console.log("fetching...");
+        console.log("fetching...");
         fetch("https://griauletalks.herokuapp.com/faces-json", {
           headers: {
             "Content-Type": "application/json",
@@ -24,6 +24,7 @@
         })
         .then((faces) => {
           for (face in faces) {
+            console.log(face)
             // if (!currentFaces.includes(faces[face])) {
               document.body.innerHTML += `<img style="height: 200px" src="data:image/png;base64,${faces[face]}">`;        
             // }
