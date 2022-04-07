@@ -9,19 +9,21 @@
     <script src="https://resources.spidx.app/spidx_auth.js"></script>
     <script>
       window.onload = () => {
-            // window.SpidxAuth.init({
-            //     apiKey: '243B62AF-BDF4-470F-82D6-E75E905B953C',
-            //     useCaseId: 'FB4BA5AC-793F-49E8-B66D-A90EF3F62E6D',
-            //     elemId: 'spidx-auth',
-            // })
+
             window.SpidxAuth.init({
                 apiKey: '3FC83ACD-09B6-489C-9DAC-BC2CC4959E1C',
                 useCaseId: '1D8DAD2D-52F4-437E-8B04-7192F4900F32',
-                elemId: 'spidx-auth',
+                elemId: 'spidx-auth-staging',
                 environment: 'HOMOL'
             })
 
-            
+            window.SpidxAuth.init({
+                apiKey: '243B62AF-BDF4-470F-82D6-E75E905B953C',
+                useCaseId: 'FB4BA5AC-793F-49E8-B66D-A90EF3F62E6D',
+                elemId: 'spidx-auth-prod',
+                environment: 'HOMOL'
+            })
+
             window.SpidxAuth.transactionCallback = async (data) => {
                 if (data.transactionStatus == 'OK') {
                     // console.log("Transaction finished!")
@@ -35,11 +37,20 @@
     <h1>
         <!-- Griaule Talks -->
     </h1>
-    <div class="group-container">
-        <div class="button-container">
-            <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth'></div>
+    <div class="container">
+        <div class="group-container">
+            <div class="button-container">
+                <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth-prod'></div>
+            </div>
+            <span class="human-label">Production</span>
         </div>
-        <span class="human-label">I'm a human</span>
+        
+        <div class="group-container">
+            <div class="button-container">
+                <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth-staging'></div>
+            </div>
+            <span class="human-label">Staging</span>
+        </div>
     </div>
 </body>
 </html>

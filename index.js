@@ -37,10 +37,22 @@ app.get("/winners", (req, res) => {
   res.render("winners.html");
 });
 
-app.post("/face", (req, res) => {
+app.post("/face-staging", (req, res) => {
   const face = req.body;
   axios
     .get("https://homol.spidx.app:8096/collection/" + face.guid)
+    .then((res) => {
+      faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.post("/face", (req, res) => {
+  const face = req.body;
+  axios
+    .get("https://app.spidx.app:8096/collection/" + face.guid)
     .then((res) => {
       faces.push(res.data['biometricPackage']['biometricList'][0]["content"]);
     })
