@@ -21,7 +21,6 @@
                 apiKey: '243B62AF-BDF4-470F-82D6-E75E905B953C',
                 useCaseId: 'FB4BA5AC-793F-49E8-B66D-A90EF3F62E6D',
                 elemId: 'spidx-auth-prod',
-                environment: 'HOMOL'
             })
 
             window.SpidxAuth.transactionCallback = async (data) => {
@@ -39,17 +38,17 @@
     </h1>
     <div class="container">
         <div class="group-container">
+            <span class="human-label">Production</span>
             <div class="button-container">
                 <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth-prod'></div>
             </div>
-            <span class="human-label">Production</span>
         </div>
         
         <div class="group-container">
+            <span class="human-label">Staging</span>
             <div class="button-container">
                 <div class='spidx-button' data-layout_setup='with-button' id='spidx-auth-staging'></div>
             </div>
-            <span class="human-label">Staging</span>
         </div>
     </div>
 </body>

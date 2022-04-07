@@ -25,11 +25,11 @@ h1 {
 }
 
 .group-container {
-    width: 90%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    /* height: 100px; */
     padding: 8px;
     margin: 8px 0px;
     border: 1px solid #C4C4C4;
@@ -40,9 +40,9 @@ h1 {
 }
 
 .button-container {
-    margin-right: 10px;
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 80px;
+    padding: 8px;
 }
 .human-label {
     font-weight: 500;
